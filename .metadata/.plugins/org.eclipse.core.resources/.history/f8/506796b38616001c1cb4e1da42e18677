@@ -1,0 +1,77 @@
+package study01;
+
+public class Car {
+
+	String company = "현대자동차";
+	String model;
+	int cs;
+	int ms;
+	int gas;
+	
+	Car(String m, int ms)
+	{
+		this.model = m;
+		this.ms = ms;
+	}//자동차 모델하고 최고스피드 세팅(초기화)
+	
+	void sg(int g)
+	{
+		this.gas = g;
+	}//가스값을 세팅(초기화)
+	
+	boolean isEmpty()
+	{
+		if(gas == 0)
+		{
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
+	void scs(int c)
+	{
+		cs = c;
+	}
+	
+	void run()
+	{
+		while(true)
+		{
+			System.out.printf("차가 %dkm/h의 속도로 주행합니다. gas 잔량 : %d리터", cs, gas);
+			if( gas > 0 )
+			{
+				if(cs<60)
+				{
+					cs += 10;
+					gas--;
+				}
+				else {
+					gas--;
+				}
+			}
+			else
+			{
+				System.out.println("==== 가스가 없습니다. 감속합니다. gas 잔량 : 0리터");
+				break;
+			}
+		}
+	}
+		
+		void downrun() {
+			while(true)
+			{
+				if(cs>0)
+				{
+					System.out.println("====속도가 줄어듭니다. 속도 %d gas 잔량 : 0리터");
+				}
+				else
+				{
+					System.out.println("====차가 멈춥니다.====");
+					return;
+				}
+			}
+		}
+	}
+	
+}
